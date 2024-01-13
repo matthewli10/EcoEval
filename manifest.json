@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "EcoImpact Analyzer",
+    "version": "1.0",
+    "description": "Analyze the environmental impact of products while shopping.",
+    "icons": {
+      "48": "icon.png"
+    },
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "action": {
+      "default_icon": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "Click to analyze environmental impact"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
