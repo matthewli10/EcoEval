@@ -1,5 +1,26 @@
 //format
 document.addEventListener('DOMContentLoaded', function () {
+    
+    chrome.storage.local.get('extractedData', function(result) {
+        if (result.extractedData) {
+            console.log('Retrieved data:', result.extractedData);
+
+            setGrade(result.extractedData.productGrade);
+            setIconConditionFromDetails(result.extractedData.ingredientDetails);
+
+            if (result.extractedData.ingredients && result.extractedData.ingredientDetails) {
+                for (let i = 0; i < result.extractedData.ingredients.length; i++) {
+                    console.log(`Updating UI for ingredient ${i + 1}`);
+                    setIngredient(`ingredient${i + 1}`, result.extractedData.ingredients[i]);
+                    setMoreContent(`moreContent${i + 1}`, result.extractedData.ingredientDetails[i]);
+                }
+            }
+
+            setAccordionContent('accordionContent1', result.extractedData.companyInfo);
+            setAccordionContent('accordionContent2', result.extractedData.otherOptions);
+        }
+    });
+    
     var readMoreElements = document.querySelectorAll('.read-more');
   
     readMoreElements.forEach(function (readMore) {
@@ -67,16 +88,11 @@ function setIconConditionFromDetails(ingredientDetails) {
 
 //setIngredient Function
 function setIngredient(ingredientId, ingredientName) {
+    console.log(`Setting ingredient ${ingredientId} to ${ingredientName}`);
     var truncatedName = ingredientName.length > 20 ? ingredientName.substring(0, 20) + "..." : ingredientName;
     document.getElementById(ingredientId).textContent = truncatedName;
 }
 //Example
-window.onload = function() {
-    // Set ingredient names based on some logic or external data
-    setIngredient('ingredient1', 'Grassdkfjslfkjsdldsffks');
-    setIngredient('ingredient2', 'Spinach');
-    setIngredient('ingredient3', 'Water');
-};
 
 
 function setMoreContent(contentId, contentText) {
@@ -121,6 +137,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //old
 document.getElementById('run-script').addEventListener('click', () => {
+    chrome.storage.local.remove('extractedData', function() {
+        console.log('Stored data cleared');
+    });
+    
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.scripting.executeScript({
             target: { tabId: tabs[0].id },
@@ -191,7 +211,7 @@ function sendDataToServer(scrapedText) {
         chrome.storage.local.set({ extractedData: extractedData }, function() {
             console.log('Data is saved in Chrome storage');
         });
-        
+
         if (extractedData && extractedData.productGrade) {
             setGrade(extractedData.productGrade);
         }
