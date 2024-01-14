@@ -3,29 +3,81 @@
 <head>
   <title>GreenGrade</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    function toggleDetails(element) {
+      var content = element.nextElementSibling;
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        element.textContent = "Read Less";
+      } else {
+        content.style.display = "none";
+        element.textContent = "Read More";
+      }
+    }
+  </script>
 </head>
 <body>
+  <div id="close-btn">&times;</div>
   <div id="header">
     <h1><span class="green-text">Green</span>Grade</h1>
     <img src="icon.png" alt="Icon" id="icon">
   </div>
   <div id="content">
     <h2>GRADE</h2>
-    <div class="circle">A</div>
+    <div class="circle" id="grade"></div> <!--Adjust given grade from chatGPT (set to A default right now)-->
     <div class="details">
       <p>Details:</p>
     </div>
-    <p class="ingredient">
-      <span class="thumbs-up"><img src="thumbsup.jpeg" alt="Thumbs Up"></span>
-      Ingredient
-    </p>
-    <p class="ingredient2">
-        <span class="thumbs-down"><img src="thumbsdown.png" alt="Thumbs Down"></span>
-        Ingredient
-    </p>
-  </div>
-</div>
-<!--START OF LOAD MORE -->
+    <div class="ingredient">
+      <span id="icon1" class="thumbs-icon"><img src="thumbsup.png" alt="Thumbs Up"></span>
+      <span class="ingredient-text" id="ingredient1">Ingredient 1</span> <!--Implement variable to allow ChatGPT to past whatever ingredient name here-->
+      <!--<span class="number">1</span> -->
+      <span class="read-more" onclick="toggleDetails(this)">Read More</span>
+      <div class="more-content" id="moreContent1">
+        LDKSFJSLKJFSLKDFJLSKF <!--CONTENT HERE WILL BE ADJUSTED ACCORDING TO CHATGPT-->
+      </div>
+    </div>
+    <div class="ingredient2">
+      <span id="icon2" class="thumbs-icon"><img src="thumbsdown.png" alt="Thumbs Down"></span>
+      <span class="ingredient-text" id="ingredient2">Ingredient 2</span> <!--Second ingredient var name-->
+      <!--<span class="number">2</span>--> 
+      <span class="read-more" onclick="toggleDetails(this)">Read More</span>
 
+      <div class="more-content" id="moreContent2">
+        HELOOOODALKFJSDLFJSALKJFDKASJLFASLKJF <!--Adjusted based off chatgpt-->
+      </div>
+    </div>
+    <div class="ingredient3">
+      <span id="icon3" class="thumbs-icon"><img src="thumbsup.png" alt="Thumbs Up"></span>
+      <span class="ingredient-text" id="ingredient3">Ingredient 3</span> <!--Implement variable to allow ChatGPT to past whatever ingredient name here-->
+      <!--<span class="number">1</span> -->
+      <span class="read-more" onclick="toggleDetails(this)">Read More</span>
+      <div class="more-content" id="moreContent3">
+        LDKSFJSLKJFSLKDFJLSKF <!--CONTENT HERE WILL BE ADJUSTED ACCORDING TO CHATGPT-->
+      </div>
+    </div>
+  </div>
+  <!--START OF ACCORDION-->
+  <ul class="accordion">
+    <li>
+      <input type="checkbox" name = "accordion" id = "first">
+      <label for="first">About Company</label>
+      <div class="content">
+        <p>Blah blah blah blah blah blah Blah
+        blah blah blah...... <!--Adjust this based off chatGPT-->
+        </p>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" name = "accordion" id = "second">
+      <label for="second">Alternative Options</label>
+      <div class="content">
+        <p>Blah blah blah blah blah blah Blah
+        blah blah blah...... <!--Adjust this based off chatGPT-->
+        </p>
+      </div>
+    </li>
+  </ul> <!--End of Accordion -->
+  <script src="script.js"></script>
 </body>
 </html>

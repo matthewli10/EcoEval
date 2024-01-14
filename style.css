@@ -1,13 +1,201 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #ffffff; /* background color of window */
     margin: 0;
     padding: 40px;
     color: #333;
-  }
-  
-  h1 {
+    width: auto;
+    min-width: 250px; /* adjusts the minimum width of the window */
+}
+
+#close-btn {
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    cursor: pointer; 
+    font-size: 24px; 
+    color: #333; 
+    font-weight: bold; 
+}
+
+#header {
+    margin-top: -10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.green-text {
+    color: green;
+}
+
+#icon {
+    width: 40px;
+    height: 40px;
+}
+
+#content {
+    margin-top: 5px;
+    font-size: 20px;
+    overflow-y: auto; /* Adds vertical scroll bar when content overflows */
+    max-height: 600px;
+}
+
+h2 {
     color: #4CAF50;
-  }
-  
+    margin-bottom: 5px;
+    margin-top: 8px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 5px auto 10px;
+    margin-bottom: 0px;
+}
+
+.details {
+    font-size: 18px;
+    text-align: left;
+    margin-left: 0px;
+    margin-bottom: -10px;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+
+}
+
+.thumbs-up img,
+.thumbs-down img {
+    width: 27px; /* Use your desired size */
+    height: 27px; /* Use your desired size */
+    object-fit: contain; /* This will ensure the image aspect ratio is maintained */
+}
+
+.thumbs-icon img{
+    width: 25px;
+    height: 25px;
+    object-fit: contain; /* Ensures the image is scaled correctly within the set dimensions */
+
+}
+
+.ingredient {
+    font-size: 14px;
+    text-align: left;
+    margin-left: 0px; /* Adjust the margin between the thumbs-up and "Ingredient" */
+    margin-top: 0px;
+    flex-wrap: nowrap;
+}
+
+.ingredient-text {
+    display: inline-block; /* Keeps the ingredient and number on the same line */
+    white-space: nowrap; /* Prevents the text from wrapping to a new line */
+}
+
+
+.ingredient2 {
+    font-size: 14px;
+    text-align: left;
+    margin-left: 0px; /* Adjust the margin between the thumbs-up and "Ingredient" */
+    margin-top: 0px;
+}
+
+.ingredient3 {
+    font-size: 14px;
+    text-align: left;
+    margin-left: 0px; /* Adjust the margin between the thumbs-up and "Ingredient" */
+    margin-top: 0px;
+}
+.ingredient, .ingredient2, .ingredient3 {
+    display: flex;
+    align-items: center; /* Aligns items vertically within the container */
+    font-size: 14px;
+    margin-top: 0px;
+    flex-wrap: nowrap;
+}
+
+.read-more {
+    color: #2d43bb;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-left: 10px; /* Spacing between ingredient text and read more link */
+}
+
+.more-content {
+    display: none; /* Hidden by default */
+    margin-top: 2px; /* Spacing above the more content text */
+    margin-left: 6px;
+    white-space: pre-wrap; /* Allows text to wrap as needed */
+}
+
+.accordion{
+    width: calc(100% - 10px); /* Assuming there's a total of 20px padding on both sides of the parent container */
+    margin-left: -45px; /* Adjust this value to align with the 'ingredient' text */
+    
+    /* margin-left: -40px;
+    width: 220px; 
+    margin-right: 25px; */
+}
+
+.accordion li{
+    list-style: none;
+    width: 100%;
+    margin: 0px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #d1fadf; /* accordion color */
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15), 
+                -6px -6px 10px -1px rgba(255,255,255,0.7) /* Adds the black and white shadow around accordion*/
+}
+
+.accordion li label{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+label::before{
+    content:'+';
+    margin-right: 15px; /* Adjusts the margin between '+' label and text */
+    font-size: 24px;
+    font-weight: 600;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+.accordion .content{
+    color:#555;
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+.accordion input[type = "checkbox"]:checked + label + .content{
+    max-height: 300px;
+    padding: 10px 10px 20px;
+}
+
+.accordion input[type = "checkbox"]:checked + label::before{
+    content: '-';
+}
