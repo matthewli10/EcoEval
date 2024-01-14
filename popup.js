@@ -157,7 +157,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 function sendDataToServer(scrapedText) {
-    
+    document.getElementById('loading').style.display = 'block';
     const prompt = "The above list (quoted) is parsed from a webpage of a \
     product. Complete the 3 sections below using this information. \
     LIMIT EACH SECTION ANSWER TO TWO SENTENCES, NOT FULL SENTENCES. \
@@ -236,9 +236,11 @@ function sendDataToServer(scrapedText) {
         }
 
         console.log('data', extractedData)
+        document.getElementById('loading').style.display = 'none';
     })
     .catch((error) => {
         console.error('Error:', error);
+        document.getElementById('loading').style.display = 'none';
     });
 }
 

@@ -17,32 +17,15 @@
   </script>
 </head>
 <body>
-<!-----------------Loading Division starts ------------->
-  <!-- <div class="loading-state">
-    <div class="loading"></div>
-  </div>  -->
-
-  <!-- <div class="loading">
-    <div align="center" style="position: absolute; margin-top: 63px; text-align: center; font-size: 18px; font-family: sans-serif; font-weight: 550; color: #fafafd;">Loading...
-    </div>
-  </div>
-  
-  <div class="content">
-
-  </div> -->
-  <!-----------------Loading Division ends ------------->
+  <div id="loading" style="display: none;">Loading...</div>
   <div id="close-btn">&times;</div>
-  <div class="container" id="run-btn">
-  <!----------------------IM GOING TO MOVE WHERE THE RUN SCRIPT BUTTON GOES NOW SORRY-->
-    <button class="button" id="run-script">
-      <span>&#9658;</button> <!-- Added Run Script button --></span>
-  </div>
   <div id="header">
     <h1><span class="green-text">Green</span>Grade</h1>
     <img src="icon.png" alt="Icon" id="icon">
+    <button id="run-script">Run Script</button> <!-- Added Run Script button -->
   </div>
   <div id="content">
-    <h2>GRADE</h2>
+    
     <div class="circle" id="grade"></div> <!--Adjust given grade from chatGPT (set to A default right now)-->
     <div class="details">
       <p>Details:</p>
@@ -98,6 +81,5 @@
     </li>
   </ul> <!--End of Accordion -->
   <script src="popup.js"></script>
-  
 </body>
 </html>

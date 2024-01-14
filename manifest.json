@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "Hello World",
-    "description": "A simple Hello World Chrome Extension",
+    "name": "GreenGrade",
+    "description": "A Chrome Extension that evaluates products for environmental impact!",
     "version": "1.0",
     "action": {
       "default_popup": "popup.html",
