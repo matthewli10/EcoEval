@@ -141,7 +141,13 @@ h2 {
     display: none; /* Hidden by default */
     margin-top: 2px; /* Spacing above the more content text */
     margin-left: 6px;
-    white-space: pre-wrap; /* Allows text to wrap as needed */
+    white-space: normal; /* Allows text to wrap as needed */
+    max-height: 10; /* Start with max-height at 0 */
+    transition: max-height 0.5s ease-out;
+    white-space: nowrap;
+    /* Add the following */
+    width: 100%; /* Ensure it takes full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .accordion{

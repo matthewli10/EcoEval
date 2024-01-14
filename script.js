@@ -87,3 +87,23 @@ document.addEventListener('DOMContentLoaded', function() {
     setMoreContent('moreContent2', moreContentText2);
     setMoreContent('moreContent3', moreContentText3);
 });
+
+function setAccordionContent(contentId, newText) {
+    var contentElement = document.getElementById(contentId);
+    if (contentElement) {
+        contentElement.innerHTML = newText;
+    } else {
+        console.error('Accordion content element not found:', contentId);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Example conditions and content
+    var accordionText1 = 'This is content for the first accordion item.';
+    var accordionText2 = 'Content for the second accordion item based on a different condition.';
+
+    // Set the content
+    setAccordionContent('accordionContent1', accordionText1);
+    setAccordionContent('accordionContent2', accordionText2);
+    // Add more as needed
+});
