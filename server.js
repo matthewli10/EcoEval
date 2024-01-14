@@ -12,7 +12,7 @@ const openai = new OpenAI({
 app.post('/test-openai', async (req, res) => {
     try {
         const inputText = req.body.text;
-        console.log('Received input text:', inputText);
+        console.log('Received input from extension:', inputText);
 
         const maxTokens = 250
 
