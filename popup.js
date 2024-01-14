@@ -26,9 +26,9 @@ function sendDataToServer(scrapedText) {
     the materials: SECTION 1: Select 3 SIGNIFICANT ingredients that \
     are either outstandingly sustainable or outstandingly detrimental \
     to the environment. LIMIT 1 SENTENCE ON WHY FOR EACH INGREDIENT. \
-    Use abbreviated sentences and limit to 10 words. Use abbreviated \
-    sentences and limit to 10 words for this section per sentence for \
-    this section. SECTION 2: Describe the company's environmental \
+    Use abbreviated sentences and limit to 10 words. Format as \
+    ex: '1. Animal Hide: Very bad for the environment'. \
+    SECTION 2: Describe the company's environmental \
     reputation and sustainability using web resources to research \
     their reputation. LIMIT 2 SENTENCES. Use abbreviated sentences \
     and limit to 10 words per sentence for this section. SECTION 3: \
