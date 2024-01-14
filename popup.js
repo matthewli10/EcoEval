@@ -24,18 +24,18 @@ function sendDataToServer(scrapedText) {
     benefits/harmful effects on environment, ethical or sustainable \
     sourcing, recyclability etc. general environmental integrity of \
     the materials: SECTION 1: Select 3 SIGNIFICANT ingredients that \
-    are either outstandingly sustainable or outstandingly detrimental \
+    can be labeled Sustainable or Detrimental  \
     to the environment. LIMIT 1 SENTENCE ON WHY FOR EACH INGREDIENT. \
     Use abbreviated sentences and limit to 10 words. Format as \
-    ex: '1. Animal Hide: Very bad for the environment'. \
+    ex: '1. Animal Hide: Detrimental for the environment because...'. \
     SECTION 2: Describe the company's environmental \
     reputation and sustainability using web resources to research \
     their reputation. LIMIT 2 SENTENCES. Use abbreviated sentences \
     and limit to 10 words per sentence for this section. SECTION 3: \
     Based on SECTION 1 and 2, generate a grade for the product from \
     A, B, C, D, F, with A being very environmentally sustainable and \
-    F being detrimental. Give 1 sentence on why this product received \
-    this grade.";
+    F being detrimental. Make sure the letter is included in 1 brief \
+    sentence and surrounded by spaces. ex: `Grade of A because...`.";
 
     const promptTokenCount = Math.ceil(prompt.length / 4);
     const maxTokenCount = 4090;
@@ -57,7 +57,8 @@ function sendDataToServer(scrapedText) {
     .then(response => response.json())
     .then(data => {
         console.log('Response from server:', data);
-        // Handle the response data
+        const extractedData = data.extractedData;
+        console.log('data', extractedData)
     })
     .catch((error) => {
         console.error('Error:', error);
