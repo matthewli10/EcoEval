@@ -8,10 +8,9 @@
       "default_icon": "icon.png"
     },
     "permissions": [
-      "activeTab"
+      "activeTab", "scripting", "tabs", "storage"
     ],
     "host_permissions": [
       "<all_urls>"
     ]
-  }
-  
+}
